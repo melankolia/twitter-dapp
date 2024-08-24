@@ -91,6 +91,7 @@ const handleTweet = async () => {
       .then(function (result) {
         console.log({ result })
         tweet.value = null
+        getAllData()
       })
   } catch (error) {
     console.error(error)
