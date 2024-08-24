@@ -74,7 +74,7 @@ const wallet = ref(null)
 const twitterContract = ref({})
 const tweet = ref(null)
 const tweets = ref([])
-const contractAddress = ref('0xBCC82De1395ad498fcB038974fAcc182fCCdd6f0')
+const contractAddress = ref(import.meta.env.VITE_CONTRACT_ADDRESS)
 
 const isWalletAvail = computed(() => {
   return wallet.value
