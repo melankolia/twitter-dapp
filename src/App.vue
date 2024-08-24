@@ -4,10 +4,12 @@
       <div class="flex flex-col justify-center items-center pt-20">
         <p class="text-5xl font-bold text-[#19a7f4]">Twitter Dapp</p>
         <button
-          class="mt-5 px-3.5 py-2.5 rounded-full bg-[#19a7f4] text-white"
+          class="mt-5 px-3.5 py-2.5 rounded-full bg-[#19a7f4] text-white duration-500"
+          :disabled="isLoading"
+          :class="[isLoading ? 'bg-zinc-300' : 'bg-[#19a7f4]']"
           @click="handleConnect"
         >
-          <span v-if="!isWalletAvail">Connect Wallet</span>
+          <span v-if="!isConnected">Connect Wallet</span>
           <span v-else>Disconnect</span>
         </button>
         <p class="text-[#19a7f4] my-2">CONNECTED: {{ wallet }}</p>
@@ -21,7 +23,9 @@
           placeholder="What's Happening"
         />
         <button
-          class="my-5 px-3.5 py-2 rounded-full bg-[#19a7f4] text-white self-start"
+          class="my-5 px-3.5 py-2 rounded-full text-white self-start duration-500"
+          :disabled="isLoading"
+          :class="[isValid ? 'bg-[#19a7f4]' : 'bg-zinc-300']"
           @click="handleTweet"
         >
           <span v-if="loading">Loading ...</span>
@@ -76,12 +80,21 @@ const tweet = ref(null)
 const tweets = ref([])
 const contractAddress = ref(import.meta.env.VITE_CONTRACT_ADDRESS)
 
-const isWalletAvail = computed(() => {
-  return wallet.value
+const isValid = computed(() => {
+  return !!isConnected.value && tweet.value?.length > 0 && !isLoading.value
+})
+
+const isLoading = computed(() => {
+  return !!loading.value || !!loadingTweet.value
+})
+
+const isConnected = computed(() => {
+  return !!wallet.value
 })
 
 const handleTweet = async () => {
   try {
+    if (!isValid.value) return
     loading.value = true
     await twitterContract.value.methods
       .createTweet(tweet.value)
@@ -91,7 +104,7 @@ const handleTweet = async () => {
       .then(function (result) {
         console.log({ result })
         tweet.value = null
-        getAllData()
+        getAllData(wallet.value)
       })
   } catch (error) {
     console.error(error)
@@ -116,6 +129,13 @@ const handleLike = async (_index, tweet) => {
 }
 
 const handleConnect = async () => {
+  if (isConnected.value) {
+    wallet.value = null
+    tweets.value = []
+    tweet.value = null
+    return
+  }
+
   const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' }).catch((err) => {
     if (err.code === 4001) {
       // EIP-1193 userRejectedRequest error.
