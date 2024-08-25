@@ -3,7 +3,7 @@
 <p align="left">
     <img width="200" src="./screenshots/logo.png">
 </p>
-<b>Twitter DApp!</b> is a mini blog app where you can you can express your thought with a tweet then share it with other. Using <b>Web3 blockhain</b> technologies and more!
+<b>Twitter DApp!</b> is a mini blog app where you can express your thought with a tweet then share it with the other's.
 
 ## Technologies
 
@@ -15,6 +15,7 @@
 </div>
 
 <p align="left">
+  This is a <b>Web3 Blockchain</b> application using the <b>Ethereum Sepolia</b> Testnet network.  <br />
   Built with <b>Vue 3</b> and integrated with <b>Blockchain</b> using <b>Web3js</b>.
 </p>
 
