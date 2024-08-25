@@ -56,14 +56,13 @@
 
 ## Contributors
 
-<center>
   <table>
     <tr>
       <td align="center">
         <a href="https://github.com/melankolia">
+         <img width="100" src="https://avatars2.githubusercontent.com/u/35604017?s=460&v=4" alt="Ageng Setyo Nugroho"><br/>
           <sub><b>Ageng Setyo Nugroho</b></sub>
         </a>
       </td>
     </tr>
   </table>
-</center>
