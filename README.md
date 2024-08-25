@@ -45,8 +45,9 @@
 
 <div align="center">
     <img width="768" src="./screenshots/web.png">
-    <img style="margin: 42px 20px 0 0" width="200" src="./screenshots/wallet.png">
-    <img style="margin-top: 42px" width="400" src="./screenshots/meta-data.png">
+    <img style="margin: 42px 5px 0 0" width="200" src="./screenshots/wallet.png">
+    <img style="margin-bottom: 10px; margin-right: 5px" width="200" src="./screenshots/contract-interaction.png">
+    <img style="margin-bottom: 10px;" width="400" src="./screenshots/meta-data.png">
 </div>
 
 ## Live Demo
