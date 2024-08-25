@@ -1,35 +1,69 @@
-# twitter-dapp
+# Twitter DApp
 
-This template should help get you started developing with Vue 3 in Vite.
+<p align="left">
+    <img width="200" src="./screenshots/logo.png">
+</p>
+<b>Twitter DApp!</b> is a mini blog app where you can you can express your thought with a tweet then share it with other. Using <b>Web3 blockhain</b> technologies and more!
 
-## Recommended IDE Setup
+## Technologies
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+<div align="center" style="margin-bottom: 20px">
+     <image align="center" width="80" src='./src/assets/logo.svg' />
+     <image align="center" width="80" src='./src/assets/Vitejs-logo.svg' style="margin: 0 10px" />
+     <image align="center" width="80" src='./src/assets/web3js-seeklogo.svg' style="margin: 0 10px" />
+     <image align="center" width="90" src='./src/assets/MetaMask_Fox.svg' />
+</div>
 
-## Customize configuration
+<p align="left">
+  Built with <b>Vue 3</b> and integrated with <b>Blockchain</b> using <b>Web3js</b>.
+</p>
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## Table of Contents
 
-## Project Setup
+- [Introduction](#introduction)
+- [Features](#features)
+- [Requirements](#requirements)
+- [Screenshots](#screenshots)
+- [Contributors](#contributors)
 
-```sh
-npm install
-```
+## Features
 
-### Compile and Hot-Reload for Development
+- User can Connect Metamask to Login
+- User can see their wallet when Connected
+- User can Write Tweet
+- User can Like Tweet
 
-```sh
-npm run dev
-```
+## Requirements
 
-### Compile and Minify for Production
+- [`yarn`](https://yarnpkg.com)
+- [`vue`](https://vuejs.org)
+- [`vite`](https://vitejs.dev)
+- [`web3`](https://web3js.readthedocs.io)
 
-```sh
-npm run build
-```
+## Screenshots
 
-### Lint with [ESLint](https://eslint.org/)
+<div align="center">
+    <img width="768" src="./screenshots/web.png">
+    <img style="margin: 42px 20px 0 0" width="200" src="./screenshots/wallet.png">
+    <img style="margin-top: 42px" width="400" src="./screenshots/meta-data.png">
+</div>
 
-```sh
-npm run lint
-```
+## Live Demo
+
+<a href="https://twitter-dapp-bros.netlify.app/">
+  twitter-dapp-bros.netlify.app
+</a>
+
+## Contributors
+
+<center>
+  <table>
+    <tr>
+      <td align="center">
+        <a href="https://github.com/melankolia">
+          <sub><b>Ageng Setyo Nugroho</b></sub>
+        </a>
+      </td>
+    </tr>
+  </table>
+</center>
