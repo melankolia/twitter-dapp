@@ -12,11 +12,11 @@
           <span v-if="!isConnected">Connect Wallet</span>
           <span v-else>Disconnect</span>
         </button>
-        <p class="text-[#19a7f4] my-2">CONNECTED: {{ wallet }}</p>
+        <p class="text-[#19a7f4] my-2 w-1/2 text-center">CONNECTED: {{ maskedWallet }}</p>
       </div>
     </header>
     <main>
-      <div class="flex flex-col justify-center px-20">
+      <div class="flex flex-col justify-center px-4 sm:px-20">
         <textarea
           class="py-2 px-3 rounded-xl border border-dark-50"
           v-model="tweet"
@@ -33,19 +33,19 @@
         </button>
       </div>
     </main>
-    <div v-if="loadingTweet" class="flex flex-col mx-20 justify-center items-center">
+    <div v-if="loadingTweet" class="flex flex-col sm:mx-20 mx-4 justify-center items-center">
       <p class="text-3xl font-bold text-[#19a7f4] animate-pulse">Loading Tweet's ...</p>
     </div>
     <div v-else class="overflow-scroll">
       <div
         v-for="(tweet, index) in tweets"
-        class="flex flex-col mx-20 border border-dark-50 my-4"
+        class="flex flex-col sm:mx-20 mx-4 border border-dark-50 my-4"
         :key="index"
       >
         <div @click="() => handleLike(index, tweet)" class="flex flex-row">
           <img width="120" :src="imageLink" alt="Avatar" />
           <div class="flex flex-col justify-center px-4 truncate">
-            <p class="text-lg font-bold text-[#19a7f4]">{{ tweet.author }}</p>
+            <p class="text-lg font-bold text-[#19a7f4]">{{ maskingAuthor(tweet.author) }}</p>
             <p class="text-lg text-black">{{ tweet.content }}</p>
             <div class="flex">
               <p v-if="tweet.loading" class="text-sm font-bold text-[#19a7f4]">Loading ...</p>
@@ -79,6 +79,20 @@ const twitterContract = ref({})
 const tweet = ref(null)
 const tweets = ref([])
 const contractAddress = ref(import.meta.env.VITE_CONTRACT_ADDRESS)
+
+const maskingAuthor = (wallet) => {
+  if (!wallet) return null
+  return wallet?.substring(0, 5) + '........' + wallet?.substring(wallet?.length - 4)
+}
+
+const maskedWallet = computed(() => {
+  if (!wallet.value) return null
+  return (
+    wallet?.value?.substring(0, 5) +
+    '........' +
+    wallet?.value?.substring(wallet?.value?.length - 4)
+  )
+})
 
 const isValid = computed(() => {
   return !!isConnected.value && tweet.value?.length > 0 && !isLoading.value
